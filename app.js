@@ -1,26 +1,31 @@
+//----------------valina-javasecript---------------//
+
+
 //calculate-btn-click
 document.getElementById("caclulate-btn").addEventListener('click', function() {
-    addInputAndBlancetotal("income-input")
+    addIncomeInput("income-input")
 })
 
 //calculate-btn-function
-function addInputAndBlancetotal(Input) {
+function addIncomeInput(Input) {
     let incomeInput = document.getElementById(Input);
-    let inputvalue = incomeInput.value;
-    if (inputvalue < 0) {
+    let inputAmount = incomeInput.value;
+    if (inputAmount < 0) {
         alert("Please Enter a valid Number")
     }
 
 
 
-
+    //expenses-calculation
     let foodInput = document.getElementById("food-input").value
     if (foodInput < 0) {
         alert("Please Enter a valid Number")
     }
     document.getElementById("food-input").value = " ";
+
     let rantInput = document.getElementById("rant-input").value
     document.getElementById("rant-input").value = " ";
+
     let clothesInput = document.getElementById("clothes-input").value
     document.getElementById("clothes-input").value = " ";
 
@@ -31,16 +36,10 @@ function addInputAndBlancetotal(Input) {
 
     totalExpenses.innerText = total;
 
-    // if (totalExpenses > incomeInput) {
-    //     alert("Your budget is To Low")
-    // } else {
-    //     return totalExpenses
-    // }
-
-
+    //blance-totoal-calculation
     let blanceTotal = document.getElementById("blance-total")
-    blanceTotal.innerText = inputvalue - total;
-    incomeInput.value = "";
+    blanceTotal.innerText = inputAmount - total;
+    
 }
 
 //save-btn-click
@@ -56,17 +55,25 @@ function addSaveAndremaining(Input) {
     if (saveInputvalue < 0) {
         alert("Please Enter a valid Number")
     }
+    //saving-calculation
 
     let inconeInput = document.getElementById("blance-total")
     let blanceTotal = inconeInput.innerText
-    let saving = (blanceTotal * saveInputvalue) / 100;
+
+    let incomeInput = document.getElementById("income-input");
+    let incomeAmount=parseFloat(incomeInput.value);
+    
+
+
+    let saving = (incomeAmount * saveInputvalue) / 100;
 
     let saveAmount = document.getElementById('save-amount');
     saveAmount.innerText = saving;
+     incomeInput.value = "";
 
     document.getElementById("save-input").value = " ";
 
-
+    //remaining-calculation
     let remainingBlance = document.getElementById('remaining-amount');
     remainingBlance.innerText = blanceTotal - saving;
 }
