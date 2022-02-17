@@ -11,7 +11,7 @@ function addIncomeInput(Input) {
     let incomeInput = document.getElementById(Input);
     let inputAmount = incomeInput.value;
     if (inputAmount < 0) {
-        alert("Please Enter a valid Number")
+            alert("Please Enter a valid Number") 
     }
 
 
@@ -45,10 +45,10 @@ function addIncomeInput(Input) {
 //save-btn-click
 
 document.getElementById("save-btn").addEventListener('click', function() {
-        addSaveAndremaining("save-input")
+        addSaveInput("save-input")
     })
     // save-btn-function
-function addSaveAndremaining(Input) {
+function addSaveInput(Input) {
     let saveInput = document.getElementById(Input)
     let saveInputvalue = parseFloat(saveInput.value)
 
